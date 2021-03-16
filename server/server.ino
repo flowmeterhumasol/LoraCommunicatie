@@ -25,6 +25,8 @@ digitalWrite(8, HIGH);
     Serial.println("init failed");
     driver.setFrequency(868);
 
+  Serial.println("Setup complete");
+
 }
 
 
@@ -43,12 +45,6 @@ void loop()
       Serial.print(from, HEX);
       Serial.print(": ");
       Serial.println((char*)buf);     
-           
-      // Send a reply
-      uint8_t data[] = "Succes";
-      if (!manager.sendtoWait(data, sizeof(data), from))
-        Serial.println("sendtoWait failed");
-      Serial.println("Sent a reply");
     } 
   }
 }

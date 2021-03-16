@@ -9,8 +9,8 @@
 #include <SPI.h>
 #include <RH_RF95.h>
 
-//#define PTP_SERVER
-#define PTP_CLIENT
+#define PTP_SERVER
+//#define PTP_CLIENT
 
 // Singleton instance of the radio driver
 RH_RF95 rf95(6, 2);

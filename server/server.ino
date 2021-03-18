@@ -29,8 +29,6 @@ digitalWrite(8, HIGH);
 
 }
 
-
-#warning "compiling lora ptp server code"
 void loop()
 {
   if (manager.available())
@@ -41,10 +39,11 @@ void loop()
     uint8_t from;
     if (manager.recvfromAck(buf, &len, &from))
     {
-      Serial.print("got data from: 0x ");
+      uint16_t buf_merged= (buf[1] << 8) | buf[0];
+      Serial.print("got data from: ");
       Serial.print(from, HEX);
       Serial.print(": ");
-      Serial.println((char*)buf);     
+      Serial.println(buf_merged);     
     } 
   }
 }
